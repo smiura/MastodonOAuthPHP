@@ -61,6 +61,9 @@ final class HttpRequest
         $cls = get_called_class();
         if(!isset(self::$instance[$cls])){
             self::$instance[$cls] = new HttpRequest($base_url, $base_path);
+        }else{
+            self::$base_path = $base_path;
+            self::$base_url = $base_url;
         }
         return self::$instance[$cls];
     }
